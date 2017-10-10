@@ -12,22 +12,19 @@ now = datetime.datetime.now()
 # load excel file of tweet data
 df = pd.read_excel('data.xlsx', sheetname=0) # read excel
 
+def post_tweet(row):
+    try:
+        status = '@{screenname} {content}'.format(screenname=row['screenname'], content=row['content'])
+        #api.PostUpdate(status=status)
+        return datetime.datetime.now()
+    except:
+        # log the error message
+        pass
 
+mask = (df['datetime'] < now) & pd.isnull(df['complete'])
+df_tweet = df.loc[mask]
+if len(df_tweet) > 0:
+    df_tweet['complete'] = df_tweet.apply(post_tweet, axis=1)
 
-# When you open a .csv file in Excel and save it as .xlsx, it parses the date as Timestamp
-# so we need to tweak the code a bit using datetime.date() instead of parse()
-# Here the code will compare "Tweet's date" vs "Current date" and "Complete" vs "Not complete".
-for i in range(0,len(df)):
-    if type(df.datetime[i]) == str:
-        tweet_date = parse(df.datetime[i])
-    else:
-        tweet_date = df.datetime[i].to_pydatetime()
-
-    if (tweet_date < now) & (pd.isnull(df.complete[i])):
-        # api.PostUpdate(status = "@" + df.screenname[i], df.content[i])
-        df.loc[i,'complete'] = str(now)
-    else:
-        print 'already done'
-
-#Overwrite the file
-df.to_excel('data.xlsx', index=False)
+# overwrite the file
+df_tweet.to_excel('data.xlsx', index=False)
