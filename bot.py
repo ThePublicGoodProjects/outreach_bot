@@ -1,3 +1,10 @@
+################################################################################
+# Module: bot.py
+# Description: { work in progress } Public Good Projects Bot
+# License: MIT, see full license in LICENSE.txt
+# Web: https://github.com/ThePublicGoodProjects/pgp_bot
+################################################################################
+
 # bot to read file of tweets from excel, then tweet them if we are past their
 # scheduled time but they have not yet been tweeted
 
@@ -6,16 +13,22 @@ import numpy as np
 import datetime
 from dateutil.parser import parse
 
+import logging as lg
+import settings
+from bot_utils import log
+
 # get current date along with hour, minutes, seconds
 now = datetime.datetime.now()
+
+# log('This is working')
 
 # load excel file of tweet data
 df = pd.read_excel('data.xlsx', sheetname=0) # read excel
 
 def post_tweet(row):
-"""
-Create a tweet's content from a dataframe row, then post it.
-"""
+    """
+    Create a tweet's content from a dataframe row, then post it.
+    """
     try:
         # create a status from screenname and content values, then post it
         status = '@{screenname} {content}'.format(screenname=row['screenname'], content=row['content'])
@@ -24,7 +37,7 @@ Create a tweet's content from a dataframe row, then post it.
         # return the current datetime to save completion time to excel file
         return datetime.datetime.now()
     except:
-        # log the error message
+        log('test warning', level=lg.WARNING)
         pass
 
 # filter the dataframe to retain only rows with datetime in the past and that
