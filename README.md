@@ -165,7 +165,6 @@ MAILTO=root HOME=/
 02 4 * * * root run-parts /etc/cron.daily 
 22 4 * * 0 root run-parts /etc/cron.weekly 
 42 4 1 * * root run-parts /etc/cron.monthly
-
 ```
 
 The first four lines are variables used to configure the environment in which the cron tasks are run. The SHELL variable tells the system which shell environment to use (in this example the bash shell), while the PATH variable defines the path used to execute commands. The output of the cron tasks are emailed to the username defined with the MAILTO variable. If the MAILTO variable is defined as an empty string (MAILTO=""), email is not sent. The HOME variable can be used to set the home directory to use when executing commands or scripts.
@@ -195,4 +194,4 @@ To automate the execution of **`bot.py`** to occur every day at 8:00 AM, we writ
 
 ## Credits ##
 
-Developed by the Public Good Project, inspired by the work of [Geoff Boeing](<https://github.com/gboeing>).
+Developed by the Public Good Projects, inspired by the work of [Geoff Boeing](<https://github.com/gboeing>).
