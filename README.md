@@ -78,7 +78,7 @@ Now with Git installed, clone the PGP_BOT Repository.
 git clone https://github.com/ThePublicGoodProjects/pgp_bot.git
 ```
 
-### Getting started ###
+### Folder Overview ###
 
 Move into the folder and explore the files
 ```
