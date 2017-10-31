@@ -194,4 +194,4 @@ To automate the execution of **`bot.py`** to occur every day at 8:00 AM, we writ
 
 ## Credits ##
 
-Developed by the Public Good Projects, inspired by the work of [Geoff Boeing](<https://github.com/gboeing>).
+Developed by the Public Good Projects
