@@ -28,7 +28,7 @@ def post_tweet(row):
     try:
         # create a status from screenname and content values, then post it
         status = '@{screenname} {content}'.format(screenname=row['screenname'], content=row['content'])
-        #api.PostUpdate(status=status)
+        api.PostUpdate(status=status)
         log('tweeted: "{}"'.format(status))
         time.sleep(pause_duration)
 
