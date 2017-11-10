@@ -96,7 +96,7 @@ pip install tensorflow==1.0.0
 pip3 install tensorflow==1.0.0
 ```
 
-Follow the steps on **`Chatbot_Attention.ipynb`** and start training your model with data from the [Cornell Movie Dialog Corpus][https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html]. In our case, it's taking around 10 hours per epoch, which is too much.
+Follow the steps on **`Chatbot_Attention.ipynb`** and start training your model with data from the [Cornell Movie Dialog Corpus](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html). In our case, it's taking around 10 hours per epoch, which is too much.
 
 Initial test are interesting, but training time needs to be considered.
 
