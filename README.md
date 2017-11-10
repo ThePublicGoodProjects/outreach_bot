@@ -22,11 +22,11 @@ The PGP_bot reads file of tweets from excel, then tweet them if they are past th
 
 ### Setup a Virtual Machine (VM) ###
 We will use Amazon Web Services (AWS), but other options are available (Microsot Azure, Google Cloud Platform, etc). 
-Here's a link to detailed [Amazon Linux AMI IDs][https://aws.amazon.com/amazon-linux-ami/] and here's a simple link to a tutorial on how to [setup an EC2 instance][https://www.infoworld.com/article/3220410/cloud-computing/linux-amazon-ec2-tutorial-how-to-set-up-an-ec2-instance.html]
+Here's a link to detailed [Amazon Linux AMI IDs](https://aws.amazon.com/amazon-linux-ami/) and here's a simple link to a tutorial on how to [setup an EC2 instance](https://www.infoworld.com/article/3220410/cloud-computing/linux-amazon-ec2-tutorial-how-to-set-up-an-ec2-instance.html)
 
-E.g. for our chatbot, we will use the [**Deep Learning AMI Ubuntu Linux - 2.4_Oct2017 (ami-37bb714d)**][https://aws.amazon.com/marketplace/pp/B06VSPXKDX]. There's no extra charge and it comes with many things preinstalled.
+E.g. for our chatbot, we will use the [**Deep Learning AMI Ubuntu Linux - 2.4_Oct2017 (ami-37bb714d)**](https://aws.amazon.com/marketplace/pp/B06VSPXKDX). There's no extra charge and it comes with many things preinstalled.
 
-Go through the following [instructions][https://aws.amazon.com/blogs/ai/the-aws-deep-learning-ami-now-with-ubuntu/] and download {your key}.pem to your computer to later access the VM through SSH. 
+Go through the following [instructions](https://aws.amazon.com/blogs/ai/the-aws-deep-learning-ami-now-with-ubuntu/) and download {your key}.pem to your computer to later access the VM through SSH. 
 
 ### Login to the VM ###
 
@@ -42,7 +42,7 @@ Now ssh into the VM
 SSH –L localhost:8888:localhost:8888 –i <your key.pem> ubuntu@<Your instance DNS>
 ```
 
-And follow [these instructions][https://blog.keras.io/running-jupyter-notebooks-on-gpu-on-aws-a-starter-guide.html] to configure **Jupyter Notebook.** Once that's done, start the server:
+And follow [these instructions](https://blog.keras.io/running-jupyter-notebooks-on-gpu-on-aws-a-starter-guide.html) to configure **Jupyter Notebook.** Once that's done, start the server:
 
 ```
 jupyter notebook.
@@ -135,7 +135,7 @@ def post_tweet(row):
 
 ### Setup Cron ###
 
-Here's a [link][https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-autotasks-cron-configuring.html] to better understand how Cron works, or you can just follow these [steps][https://www.cumulations.com/blogs/37/How-to-write-Cron-jobs-on-Amazon-Web-ServicesAWS-EC2-server] to configure Cron Jobs Amazon Web Services(AWS) EC2 server.
+Here's a [link](https://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-autotasks-cron-configuring.html) to better understand how Cron works, or you can just follow these [steps](https://www.cumulations.com/blogs/37/How-to-write-Cron-jobs-on-Amazon-Web-ServicesAWS-EC2-server) to configure Cron Jobs Amazon Web Services(AWS) EC2 server.
 
 Go to the PGP_BOT repository and get the absolute path for **`bot.py`**. We will use that later.
 
