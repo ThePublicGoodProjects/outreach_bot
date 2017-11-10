@@ -1,11 +1,11 @@
 # PGP Bot – Public Health Chatbot #
 
-In this section, we will attempt two different ways to make our chatbot work. One, is through the [Chatterbot][https://chatterbot.readthedocs.io/en/stable/index.html] library, and the other is to attempt to train and test our own chatbot through seq2seq models.
+In this section, we will attempt two different ways to make our chatbot work. One, is through the [Chatterbot](https://chatterbot.readthedocs.io/en/stable/index.html) library, and the other is to attempt to train and test our own chatbot through seq2seq models.
 
 **Most of the presented work is based on code listed below in 'Sources'**
 
 ## Sources ##
-- [Practical Seq2Seq][http://suriyadeepan.github.io/2016-12-31-practical-seq2seq]
+- [Practical Seq2Seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq)
 - [Tensorflow chatbot tutorial by Siraj Ravel][https://www.youtube.com/watch?v=SJDEOWLHYVo]
 – [Stanford CS 20SI: Tensorflow chatbot][https://web.stanford.edu/class/cs20si/lectures/slides_13.pdf]
 – [Code for scraping real time posts in Twitter][https://github.com/Marsan-Ma/twitter_scraper]
