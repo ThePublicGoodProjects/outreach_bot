@@ -4,22 +4,35 @@
 #              past their scheduled time but they have not yet been tweeted
 ################################################################################
 
-import pandas as pd
-import numpy as np
 import datetime as dt
-import time
 import logging as lg
+import numpy as np
+import pandas as pd
+import time
+import twitter
 from dateutil.parser import parse
 
-from settings import pause_duration
+from settings import pause_duration, test_mode
 from bot_utils import log
+
+from keys import consumer_key, consumer_secret, access_token_key, access_token_secret
+
 
 # get current date along with hour, minutes, seconds
 now = dt.datetime.now()
 log('Script started at {}'.format(now))
 
+# log into twitter
+api = twitter.Api(consumer_key = consumer_key,
+                  consumer_secret = consumer_secret,
+                  access_token_key = access_token_key,
+                  access_token_secret = access_token_secret)
+
+user = api.VerifyCredentials().AsDict()
+log('logged into twitter as "{}" id={}'.format(user['screen_name'], user['id']))
+
 # load excel file of tweet data
-df = pd.read_excel('data.xlsx', sheetname=0) # read excel
+df = pd.read_excel('data.xlsx', sheet_name=0) # read excel
 
 def post_tweet(row):
     """
@@ -28,12 +41,17 @@ def post_tweet(row):
     try:
         # create a status from screenname and content values, then post it
         status = '@{screenname} {content}'.format(screenname=row['screenname'], content=row['content'])
-        #api.PostUpdate(status=status)
-        log('tweeted: "{}"'.format(status))
-        time.sleep(pause_duration)
 
-        # return the current datetime to save completion time to excel file
-        return dt.datetime.now()
+        if test_mode:
+            log('TEST MODE did not tweet: "{}"'.format(status))
+            return None
+
+        else:
+            api.PostUpdate(status=status)
+            log('tweeted: "{}"'.format(status))
+            time.sleep(pause_duration)
+            return dt.datetime.now() #return the current datetime to save completion time to excel file
+
     except Exception as e:
         log('Error: {}'.format(e), level=lg.ERROR)
         return None

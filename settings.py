@@ -5,7 +5,7 @@
 
 import logging as lg
 
-pause_duration = 0.01 #seconds to pause between tweets
+pause_duration = 0.5 #seconds to pause between tweets
 
 # location to save log files
 logs_folder = './logs'
@@ -16,3 +16,5 @@ log_console = True
 log_level = lg.INFO
 log_name = 'pgp_bot'
 log_filename = 'pgp_bot'
+
+test_mode = False
