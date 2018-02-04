@@ -41,7 +41,6 @@ def post_tweet(row):
     try:
         # create a status from screenname and content values, then post it
         status = '@{screenname} {content}'.format(screenname=row['screenname'], content=row['content'])
-
         if test_mode:
             log('TEST MODE did not tweet: "{}"'.format(status))
             return None
