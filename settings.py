@@ -5,7 +5,7 @@
 
 import logging as lg
 
-pause_duration = 0.5 #seconds to pause between tweets
+pause_duration = 5 #seconds to pause between tweets
 
 # location to save log files
 logs_folder = './logs'
